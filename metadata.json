@@ -2,6 +2,7 @@
   "name": "Windows Update Intelligence Agent",
   "description": "An AI agent that monitors Windows updates, explains changes in simple user-friendly language, notifies of critical updates, and learns using Hindsight memory from past outcomes and user feedback.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
-

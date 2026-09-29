@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
-import { 
+import type { 
   WindowsUpdate, 
   HindsightMemory, 
   UpdateExplanation, 
@@ -26,7 +26,14 @@ app.use(express.json());
 let aiClient: GoogleGenAI | null = null;
 if (process.env.GEMINI_API_KEY) {
   try {
-    aiClient = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    aiClient = new GoogleGenAI({
+      apiKey: process.env.GEMINI_API_KEY,
+      httpOptions: {
+        headers: {
+          'User-Agent': 'aistudio-build',
+        },
+      },
+    });
   } catch (err) {
     console.warn('Failed to initialize GoogleGenAI with key:', err);
   }
